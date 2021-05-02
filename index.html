@@ -1,183 +1,98 @@
-<!doctype html>
-<html lang=en>
-  <head>
-  <link href=data:, rel=icon>
-  <title>edvardxyz - home</title>
-  <meta charset=utf-8>
-  <meta name=Description content="This is a website">
-  <meta name=viewport content="width=device-width,initial-scale=1">
-  <style>
-    body {
-        overflow-y:scroll;
-        font:16px monospace,monospace;
-        background-color:#282c34;
-        color:#bbc2cf
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="data:image/png;base64,">
+<title>edvard.xyz</title>
+<style>
+	@media (prefers-color-scheme: light){
+		body {color:#fff;background:#282c34}
+		a:link {color:#9cf}
+		a:hover, a:visited:hover {color:#cef}
+		a:visited {color:#c9f}
+	}
+	body{
+		margin:1em auto;
+		max-width:40em;
+		padding:0 .62em;
+		font:1.2em/1.62 sans-serif;
+	}
+	h1,h2,h3 {
+		line-height:1.2;
+	}
+
+    .navbar{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        width: 100%;
+		max-width:40em;
     }
-    img,.c {
-        display:table-cell;
-        max-width:999px;
-        max-width:80ch
-    }
-    pre {
-        margin:0;
-        overflow-x:hidden
-    }
-    a:link, a:visited {
-        color: #2257a0;
+
+    li a {
+        display: block;
+        color: #000;
+        padding: 14px 16px;
         text-decoration: none;
+        text-align: center;
     }
-    a:hover, a:active {
-        color: #ff6c6b;
-        text-decoration: none;
+
+    .navbar li a:hover{
+        background-color: #2257a0;
     }
-    @media(max-width:999px) {
-        .c {
-            display:block;
-            font-size:1.94vw
-        }
+    .navbar li{
+        float: left;
     }
-  </style>
-  </head>
-  <body>
-  <div style="display:table;margin:16px auto">
-    <div class=c>
-      <pre style="top:0;position:sticky;user-select:none;padding-right:50px;font-size:10px">
-      __
-     (  \
- __   \  '\
-(  "-_ \ .-'----._
- '-_  "v"         "-
-    "Y'             ".
-     |                |
-     |        o     o |
-     |          .<>.  |
-      \         "Ll"  |
-       |             .'
-       |             |
-       (             /
-      /'\         . \
-      "--^--.__,\_)-'
 
-      </pre>
-      <pre style="top:210px;position:sticky;user-select:none">
-<a href=/blog>Blog</a>
-
-<a href=/cv>CV</a>
-
-<a href=/contact>Contact</a>
-
-<a href=https://github.com/edvardxyz/>GitHub</a>
-
-
-</pre></div>
-<div class=c>
-<pre style="font-size:0.34vw;user-select:none;@media(max-width:999px)">
-
-                                  dddddddd                                                                       dddddddd
-EEEEEEEEEEEEEEEEEEEEEE            d::::::d                                                                       d::::::d
-E::::::::::::::::::::E            d::::::d                                                                       d::::::d
-E::::::::::::::::::::E            d::::::d                                                                       d::::::d
-EE::::::EEEEEEEEE::::E            d:::::d                                                                        d:::::d
-  E:::::E       EEEEEE    ddddddddd:::::dvvvvvvv           vvvvvvvaaaaaaaaaaaaa  rrrrr   rrrrrrrrr       ddddddddd:::::d         xxxxxxx      xxxxxxxyyyyyyy           yyyyyyyzzzzzzzzzzzzzzzzz
-  E:::::E               dd::::::::::::::d v:::::v         v:::::v a::::::::::::a r::::rrr:::::::::r    dd::::::::::::::d          x:::::x    x:::::x  y:::::y         y:::::y z:::::::::::::::z
-  E::::::EEEEEEEEEE    d::::::::::::::::d  v:::::v       v:::::v  aaaaaaaaa:::::ar:::::::::::::::::r  d::::::::::::::::d           x:::::x  x:::::x    y:::::y       y:::::y  z::::::::::::::z
-  E:::::::::::::::E   d:::::::ddddd:::::d   v:::::v     v:::::v            a::::arr::::::rrrrr::::::rd:::::::ddddd:::::d            x:::::xx:::::x      y:::::y     y:::::y   zzzzzzzz::::::z
-  E:::::::::::::::E   d::::::d    d:::::d    v:::::v   v:::::v      aaaaaaa:::::a r:::::r     r:::::rd::::::d    d:::::d             x::::::::::x        y:::::y   y:::::y          z::::::z
-  E::::::EEEEEEEEEE   d:::::d     d:::::d     v:::::v v:::::v     aa::::::::::::a r:::::r     rrrrrrrd:::::d     d:::::d              x::::::::x          y:::::y y:::::y          z::::::z
-  E:::::E             d:::::d     d:::::d      v:::::v:::::v     a::::aaaa::::::a r:::::r            d:::::d     d:::::d              x::::::::x           y:::::y:::::y          z::::::z
-  E:::::E       EEEEEEd:::::d     d:::::d       v:::::::::v     a::::a    a:::::a r:::::r            d:::::d     d:::::d             x::::::::::x           y:::::::::y          z::::::z
-EE::::::EEEEEEEE:::::Ed::::::ddddd::::::dd       v:::::::v      a::::a    a:::::a r:::::r            d::::::ddddd::::::dd           x:::::xx:::::x           y:::::::y          z::::::zzzzzzzz
-E::::::::::::::::::::E d:::::::::::::::::d        v:::::v       a:::::aaaa::::::a r:::::r             d:::::::::::::::::d ......   x:::::x  x:::::x           y:::::y          z::::::::::::::z
-E::::::::::::::::::::E  d:::::::::ddd::::d         v:::v         a::::::::::aa:::ar:::::r              d:::::::::ddd::::d .::::.  x:::::x    x:::::x         y:::::y          z:::::::::::::::z
-EEEEEEEEEEEEEEEEEEEEEE   ddddddddd   ddddd          vvv           aaaaaaaaaa  aaaarrrrrrr               ddddddddd   ddddd ...... xxxxxxx      xxxxxxx       y:::::y           zzzzzzzzzzzzzzzzz
-                                                                                                                                                           y:::::y
-                                                                                                                                                          y:::::y
-                                                                                                                                                         y:::::y
-                                                                                                                                                        y:::::y
-                                                                                                                                                       yyyyyyy
-</pre>
-<pre>
-
-Welcome to my page.
-________________________________________________________________________________
-
-Hello, this website is mainly for learning purposes.
-
-I am a guy who likes minimalistic software that follows the philosophy
-and principles of KISS, UNIX and suckless.
-
-Therefore I am trying to learn C and POSIX compliant shell scripts.
-I'm running Gentoo Linux on my laptop and desktop.
-Through school I am currently learning Python and C#.
-I also have plans to start learning more about SDRs.
-So I just bought a HackRF One to play with.
-
-I also like to work with 3d printing. I have a Ender 3 Pro.
-My recent project was Dactyl Manuform.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-________________________________________________________________________________
-</pre></div></div></body></html>
+</style>
+
+<ul class=navbar>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="https://www.github.com/edvardxyz">Github</a></li>
+    <li style="float:right"><a href="contact.html">Contact</a></li>
+</ul>
+
+<article>
+<br><br>
+<h1>Welcome to my page.</h1>
+<p>Hello, this website is mainly for learning purposes & to showcase some projects i've been working with.</p>
+-----------------------------------------------------------------------------
+<h2>Introduction</h2>
+<p>
+My name is Edvard, I'm 25 years old, 
+in august 2020 i started studying as a computer technician with a specialty in programming.
+Since then I've really been dedicating myself to studying more about; 
+computers, hardware, GNU/Linux & programming.
+<br>
+Throughout my studies I've found the philosophy behind UNIX systems compelling.
+Which also naturally made me appriciate principles from KISS & <a href="https://www.suckless.org">suckless</a>.
+These principles has led me to learning C & POSIX compliant shell scripting in my own time.
+It has also resulted in me running Gentoo Linux with my own custom kernel customized for my new Lenovo P14s 
+<a href="https://www.github.com/edvardxyz/kernel-config">kernel Config</a>
+Working with a Gentoo system has been a big time sink, but nonetheless its been a good project to learn about the ins & out of a GNU/Linux system.
+The reason I decided on Gentoo as my desktop distrubution, is because portage(Gentoo's package manager)
+allows me to compile each package with the specific USE flags that I need.
+When running a binary Linux distrubution people have packaged the binary with whatever they find usefull(which means enabling as much as possible for compatibility).
+If you looked at my <a href="https://www.github.com/edvardxyz/make.conf">make.conf</a> you would find that my global USE flags
+disables gtk, systemd, qt, kde, gnome & many others. I can do that because I'm running DWM as my windows manager from <a href="https://www.suckless.org">suckless</a>
+& when I need program to have a gui i enable the appropriate GUI USE flags.
+You might ask why it's necessary to go trough the hassle of compiling & configuring each package.
+I do it because it avoids dependencies, makes programs lighter & packages are compiled for my specific CPU for runtime performance.
+This also makes the surface area of each program smaller avoiding bugs & security holes. 
+
+<h3>Education</h3>
+The school I'm studying at is <a href="https://www.mercantec.dk">Mercantec</a> 
+& I also have a temporary internship with Mercantec until I find a internship somewhere else.
+At school & the internship we mostly work with C# & PHP, where C# has become the language I'm most proficient in.
+
+<br><br>
+If you go to my <a href="projects.html">projects</a> or github you will find some projects I've been working on.
+<br><br>
+-----------------------------------------------------------------------------
+</p>
+</article>

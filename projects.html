@@ -20,32 +20,42 @@
 	h1,h2,h3 {
 		line-height:1.2;
 	}
-
-    .navbar{
+    ul{
         list-style-type: none;
         margin: 0;
         padding: 0;
         overflow: hidden;
-        background-color: #333;
+    }
+    .navbar{
         position: fixed;
+        background-color: #333;
         top: 0;
         width: 100%;
 		max-width:40em;
     }
-
-    li a {
+    .navbar li a {
         display: block;
-        color: #000;
+        color: #fff;
         padding: 14px 16px;
         text-decoration: none;
         text-align: center;
     }
-
     .navbar li a:hover{
         background-color: #2257a0;
     }
     .navbar li{
         float: left;
+    }
+    .prj li a{
+        list-style-type: none;
+        display: block;
+        color: #fff;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    .prj {
+        display: table;
+        margin: 0 auto;
     }
 
 </style>
@@ -59,15 +69,14 @@
 
 <article>
 <br><br>
-<h1>Welcome to my page.</h1>
-<p>Hello, this website is mainly for learning purposes & to showcase some projects i've been working with.</p>
+<h1>Projects</h1>
 -----------------------------------------------------------------------------
-<h2>Projects</h2>
-<p>
+<ul class=prj>
+    <li><a href="projects/dactyl-manuform.html">Dactyl-Manuform</a></li>
+    <li><a href="projects/libreboot.html">Libreboot</a></li>
+    <li><a href="projects/6502.html">6502</a></li>
+</ul>
 
-<br><br>
-If you go to my <a href="projects.html">projects</a> or github you will find some projects I've been working on.
-<br><br>
 -----------------------------------------------------------------------------
 </p>
 </article>

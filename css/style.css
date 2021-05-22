@@ -4,8 +4,14 @@
 		padding: 1em;
 		font:1.2em/1.62 monospace;
 	}
+    code {
+        background-color: #eee;
+        border: 1px solid #999;
+        display: block;
+        padding: 10px;
+    }
     img{
-        width: 70%;
+        width: 90%;
         margin-top: 5%;
         display: block;
         margin-left: auto;

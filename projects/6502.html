@@ -5,31 +5,156 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/png" href="data:image/png;base64,">
 <title>edvard.xyz</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 </head>
 
 <ul class="navbar list">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="projects.html">Projects</a></li>
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/projects.html">Projects</a></li>
     <li><a href="https://www.github.com/edvardxyz">Github</a></li>
-    <li style="float:right"><a href="contact.html">Contact</a></li>
+    <li style="float:right"><a href="/contact.html">Contact</a></li>
 </ul>
 
 <article>
 <br><br>
-<h2>Projects</h2>
+<h2>6502</h2>
 <p>
+I wanted to learn more about the intersection between hardware and software, so I bought the items
+needed for <a href="https://eater.net/">Ben Eaters 6502 tutorial</a>.<br>
+I added some extra stuff to it with the 3 buttons that types characters to the display.
 
-<ul class=list>
-    <li><a href="projects/libreboot.html">Libreboot</a></li>
-    <li><a href="projects/chess.html">Chess engine</a></li>
-    <li><a href="projects/6502.html">6502</a></li>
-    <li><a href="projects/eth.html">Ethereum Miner</a></li>
-    <li><a href="projects/dactyl.html">Dactyl-Manuform</a></li>
-    <li><a href="projects/firefox_ext.html">Firefox Extension</a></li>
-    <li><a href="projects/library_csharp.html">Library console interface</a></li>
-</ul>
 
-<br><br>
 </p>
+<img src="/pics/6502.gif" width="480" height="320">
+<img src="/pics/6502.png">
+
+<pre>
+<code>
+PORTB = $6000
+PORTA = $6001
+DDRB = $6002
+DDRA = $6003
+
+E = %10000000
+RW = %01000000
+RS = %00100000
+
+    .org $8000
+
+reset:
+    ldx #$ff            ;Load x registar with $ff
+    txs                 ;Transfer x reg to stack pointer to init SP
+
+    lda #%11111111      ;Set all pins on port B to output
+    sta DDRB
+
+    lda #%11100000      ;Set top 3 pins on port A to output
+    sta DDRA
+
+    lda #%00111000      ;Set 8-bit mode; 2-line display; 5x8 font
+    jsr lcd_instruction ;jump to subroutine
+    lda #%00001110      ;Display on; cursor on; blink off
+    jsr lcd_instruction
+    lda #%00000110      ;Inc and shift cursor; don't shift display
+    jsr lcd_instruction
+    lda #%00000001      ;Clear display
+    jsr lcd_instruction
+    jsr buttonstart
+
+buttonstart:
+    lda #%00000000      ;Set all pins on port A to input
+    sta DDRA            ;Send bits to data direction for A
+
+buttonwait:
+    lda PORTA           ;Get data from port A
+    and #%00010000      ;& port A with 00010000 grabs btn if 1
+    bne waitllow        ;Jump to waitllow: label if btn is pressed
+    lda PORTA           ;Get data from port A
+    and #%00001000      ;& port A with 00001000 grabs btn if 1
+    bne waitmlow        ;Jump to waitmlow: label if btn is pressed
+    lda PORTA           ;Get data from port A
+    and #%00000100      ;& port A with 00000100 grabs btn if 1
+    bne waitrlow        ;Jump to waitrlow: label if btn is pressed
+    beq buttonwait
+
+waitllow:
+    lda PORTA                   ; Get data from port A
+    and #%00010000
+    bne waitllow
+
+    lda #%11100000              ; Set top 3 pins on port A to output
+    sta DDRA
+    lda #"L"
+    jsr print_char
+    jsr buttonstart
+
+waitmlow:
+    lda PORTA                   ; Get data from port A
+    and #%00001000
+    bne waitmlow
+
+    lda #%11100000              ; Set top 3 pins on port A to output
+    sta DDRA
+    lda #"M"
+    jsr print_char
+    jsr buttonstart
+
+waitrlow:
+    lda PORTA                   ; Get data from port A
+    and #%00000100
+    bne waitrlow
+
+    lda #%11100000              ; Set top 3 pins on port A to output
+    sta DDRA
+    lda #"R"
+    jsr print_char
+    jsr buttonstart
+loop:
+    jmp loop
+
+lcd_wait:
+    pha                         ; Push a reg on stack to save
+    lda #%00000000              ; Port B is input
+    sta DDRB
+lcdbusy:
+    lda #RW
+    sta PORTA
+    lda #(RW | E)
+    sta PORTA
+    lda PORTB
+    and #%10000000              ; AND with Busy flag which is on DB7
+    bne lcdbusy
+
+    lda #RW
+    sta PORTA
+    lda #%11111111              ; Set all pins on port B to output
+    sta DDRB
+    pla                         ; Pop a reg off stack
+    rts
+lcd_instruction:
+    jsr lcd_wait
+    sta PORTB
+    lda #0                      ; Clear RS/RW/E bits
+    sta PORTA
+    lda #E                      ; Set Enable bit to send instruction
+    sta PORTA
+    lda #0                      ; Disable Enable bit again to toggle
+    sta PORTA
+    rts                         ; return from subroutine
+print_char:
+    jsr lcd_wait
+    sta PORTB
+    lda #RS                     ; Set RS; Clear RW/E bits
+    sta PORTA
+    lda #(RS | E)               ; Set E bit to send instruction
+    sta PORTA
+    lda #RS                     ; Clear E bits
+    sta PORTA
+    rts
+
+    .org $fffc
+    .word reset
+    .word $0000
+</code>
+</pre>
 </article>

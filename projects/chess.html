@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="data:image/png;base64,">
+<title>edvard.xyz</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<ul class="navbar list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="https://www.github.com/edvardxyz">Github</a></li>
+    <li style="float:right"><a href="contact.html">Contact</a></li>
+</ul>
+
+<article>
+<br><br>
+<h2>Chess engine</h2>
+<p>
+When I first started learning C# around november 2020, the first project I started with was a game of <a href="https://www.github.com/edvardxyz/tictactoe">tictactoe</a>.
+After that I began making a <a href="https://www.github.com/edvardxyz/chess">chess game</a> for 2 human players. I just started programming it without really knowing how I would do it.
+I decided to just use a singe dimensional array. Its not 64 as you would expect, as I changed it to 71 later to put flags inside the array.
+This way the board state is part of the board when passed around. I'm writing this long after the project so I dont really remember everything about the code.<br>
+One thing I remeber being tricky was reversing the board array so the board flipped depening on which players turn.<br>
+After the first chess game I read some stuff about chess engines, and found a <a href="https://www.youtube.com/channel/UCmMjMHTeUEBJJZhxix-N-yg">youtube</a>
+guide of a chess engine using bitboards written in java. I don't know anything about java, but I managed to follow along, and when I felt like it change stuff how I wanted it to work.<br>
+Using 12 bitboards to represent the position of each piece, seemed like a genius idea so thats why I chose this representation.<br>
+Here is the <a href="https://www.github.com/edvardxyz/bitboard-chess">link</a>
+</p>
+<img src="https://www.chessprogramming.org/images/3/37/Bitboard.gif">
+</article>

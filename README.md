@@ -1,2 +1,2 @@
 # edvardxyz.github.io
-down while moving away from github server
+domain down while moving away from github server

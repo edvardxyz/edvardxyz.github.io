@@ -1,3 +1,2 @@
 # edvardxyz.github.io
-Website for now
-moving away from github server
+down while moving away from github server
